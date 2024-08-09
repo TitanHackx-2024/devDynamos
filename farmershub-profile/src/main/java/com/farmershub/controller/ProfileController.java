@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,42 @@ public class ProfileController {
 	public List<FarmerProfile> findAll() {
 		try {
 			return profileService.findAll();
+		}catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	@GetMapping("/firstname/{firstName}")
+	public FarmerProfile findByFirstName(@PathVariable String firstName) {
+		try {
+			return profileService.findByFirstName(firstName);
+		}catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	@GetMapping("/pincode/{pincode}")
+	public List<FarmerProfile> findByPincode(@PathVariable String pincode) {
+		try {
+			return profileService.findAllByPincode(pincode);
+		}catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	@GetMapping("/district/{district}")
+	public List<FarmerProfile> findByDistrict(@PathVariable String district) {
+		try {
+			return profileService.findAllByDistrict(district);
+		}catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	@GetMapping("/state/{state}")
+	public List<FarmerProfile> findByState(@PathVariable String state) {
+		try {
+			return profileService.findAllByState(state);
 		}catch (SQLException e) {
 			return null;
 		}

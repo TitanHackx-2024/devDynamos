@@ -29,6 +29,7 @@ public class FarmerProfile {
 	private String village;
 	private String address;
 	private String pincode;
+	private String mobileNumber;
 	private String emailid;
 	private String userId;
 	private String passWord;
