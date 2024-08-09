@@ -1,0 +1,36 @@
+We got 2 days for development activity ,
+So for Farmer Profile project we will come up with data base design catering to the following features
+
+
+FarmerProfile :
+       1.Module : User login 
+	     2.Search for Farmer , Farmers in some region place town ect.
+	   
+Products :
+		1.Products contain info about product posted by farmer and each row will be linked to a particular farmer
+		2.Buyer can search for products
+		
+Services Offered :
+		1.Service information farmer can provide and each row will be linked to a particular farmer
+
+Services Needed :
+		1.Either search for current services present in the Services offered module and connect with the farmer.
+		2.Create a Service required notice in the portal, so that farmer can look for the requirement and connect with the person.
+		
+Goods Wanted :
+		1.Farmer will user this portal to leave a notice regarding the goods he is looking for , any one who had the goods can connect with the farmer.
+
+Transaction Management:
+    - Farmers can negotiate and complete transactions directly
+    - Integrated payment gateway for secure transactions
+	
+	
+//If time permits we can implement these modules
+5. Auction System (eBay-style):
+    - Farmers can create auction listings for produce or goods
+    - Bidding system with timeline and notifications
+    - Winning bidder pays through the platform
+	
+7. Rating and Review System:
+    - Farmers can rate and review each other's transactions
+    - Builds trust and accountability within the community
