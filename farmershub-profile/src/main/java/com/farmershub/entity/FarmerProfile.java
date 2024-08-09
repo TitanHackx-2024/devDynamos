@@ -33,6 +33,7 @@ public class FarmerProfile {
 	private String emailid;
 	private String userId;
 	private String passWord;
+	private String roles;
 
 	@Override
 	public String toString() {

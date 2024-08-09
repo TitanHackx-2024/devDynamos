@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.farmershub.entity.FarmerProfile;
 
-
 public interface ProfileRepository extends JpaRepository<FarmerProfile, Integer>{
 	
 	Optional<FarmerProfile> findByfirstName(String firstName);
@@ -19,4 +18,6 @@ public interface ProfileRepository extends JpaRepository<FarmerProfile, Integer>
 	List<FarmerProfile> findByDistrict(String district);
 
 	List<FarmerProfile> findByState(String state);
+	
+	Optional<FarmerProfile> findByuserId(String username);
 }

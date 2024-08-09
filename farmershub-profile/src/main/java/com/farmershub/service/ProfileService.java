@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.farmershub.entity.FarmerProfile;
@@ -16,7 +17,11 @@ public class ProfileService {
 	@Autowired
 	ProfileRepository profileRepository;
 	
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+	
 	public FarmerProfile save(FarmerProfile farmerProfile) throws SQLException{
+		farmerProfile.setPassWord(passwordEncoder.encode(farmerProfile.getPassWord()));
 		return profileRepository.save(farmerProfile);
 	}
 	

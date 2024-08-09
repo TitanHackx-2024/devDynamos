@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farmershub.dto.Message;
 import com.farmershub.entity.FarmerProfile;
+import com.farmershub.service.JWTService;
 import com.farmershub.service.ProfileService;
 
 @RestController
@@ -21,6 +22,9 @@ public class ProfileController {
 
 	@Autowired
 	ProfileService profileService;
+	
+	@Autowired
+	JWTService jwtService;
 	
 	@PostMapping("/create")
 	public Message saveProfile(@RequestBody FarmerProfile farmerProfile) {
@@ -77,4 +81,10 @@ public class ProfileController {
 			return null;
 		}
 	}
+	
+    @PostMapping("/authenticate")
+    public Message authenticateAndGetToken(@RequestBody FarmerProfile farmerProfile) {
+    	return new Message(jwtService.generateToken(farmerProfile.getUserId()).toString());
+    	 
+    }
 }
