@@ -36,3 +36,19 @@ Transaction Management:
     - Builds trust and accountability within the community
 
 This is to check local changes push to git hub.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+Entities and functionalities
+FarmerProfile
+				FID FirstName MiddleName LastName Gender Age Country State District Village Address Pincode Emailid Phoneno userid password
+				
+				Create profile
+				User login
+				Search farmer by , name, pincode, phoneno
+				
+Product			PID productname productowner(FID FK) QuantityAvaillable
+				Add product
+				Search product by name
+				
