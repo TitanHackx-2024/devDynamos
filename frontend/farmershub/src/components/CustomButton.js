@@ -1,6 +1,6 @@
-function CustomButton({ type, className, text }) {
+function CustomButton({ type, className, text, ...options }) {
   return (
-    <button type={type} className={className}>
+    <button type={type} className={className} {...options}>
       {text}
     </button>
   );

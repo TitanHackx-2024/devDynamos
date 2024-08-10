@@ -29,8 +29,11 @@ function Login() {
       });
 
       if (response.ok) {
-         const result = await response.json();
-         console.log("Success:", result);
+        const result = await response.json();
+        // console.log("Success:", result);
+        const token = result.message;
+
+        localStorage.setItem("authToken", token);
 
         navigate("/");
       } else {
