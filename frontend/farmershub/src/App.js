@@ -8,11 +8,11 @@ function App() {
   return (
     <Router>
       <div className="bg-gray-100">
-        <Header />
+        {/* <Header /> */}
         <main>
           <AppRoutes />
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
