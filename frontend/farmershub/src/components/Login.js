@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import CustomLabel from "./CustomLabel";
+import CustomInput from "./CustomInput";
+import CustomButton from "./CustomButton";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,46 +19,44 @@ function Login() {
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+            <CustomLabel
               htmlFor="email"
-            >
-              Email
-            </label>
-            <input
+              className="block text-gray-700 text-sm font-bold mb-2"
+              text="Email"
+            />
+
+            <CustomInput
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your email"
-              required
+              required="true"
             />
           </div>
+
           <div className="mb-6">
-            <label
+            <CustomLabel
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="password"
-            >
-              Password
-            </label>
-            <input
+              text="Password"
+            />
+
+            <CustomInput
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your password"
-              required
+              required="true"
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
+            <CustomButton
               type="submit"
               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 focus:outline-none focus:ring focus:border-green-300"
-            >
-              Login
-            </button>
+              text="Login"
+            />
           </div>
         </form>
       </div>

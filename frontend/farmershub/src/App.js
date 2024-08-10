@@ -7,9 +7,9 @@ import AppRoutes from "./Routes.js";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gray-100">
+      <div className="bg-gray-100">
         <Header />
-        <main className="flex-grow flex items-center justify-center">
+        <main>
           <AppRoutes />
         </main>
         <Footer />
