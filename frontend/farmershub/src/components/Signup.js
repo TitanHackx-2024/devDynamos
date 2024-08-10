@@ -13,7 +13,7 @@ function Login() {
   const [gender, setGender] = useState("");
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
-  const [emailid, setEmail] = useState("");
+  const [emailid, setEmailId] = useState("");
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
   const [village, setVillage] = useState("");
@@ -21,7 +21,7 @@ function Login() {
   const [pincode, setPincode] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [userId, setUserId] = useState("");
-  const [passWord, setPassword] = useState("");
+  const [passWord, setpassWord] = useState("");
   const [roles, setRoles] = useState("");
 
   const navigate = useNavigate();
@@ -47,6 +47,8 @@ function Login() {
       userId,
     };
 
+    console.log(data);
+
     try {
       const response = await fetch(signUpUrl, {
         method: "POST",
@@ -57,8 +59,8 @@ function Login() {
       });
 
       if (response.ok) {
-        // const result = await response.json();
-        // console.log("Success:", result);
+        const result = await response.json();
+        console.log("Success:", result);
         navigate("/");
       } else {
         // console.error("Error:", response.statusText);
@@ -103,6 +105,24 @@ function Login() {
               required="true"
             />
           </div>
+
+          <div className="w-full sm:w-1/2 px-2  mb-2">
+            <CustomLabel
+              htmlFor="middleName"
+              className="block text-gray-700 text-sm font-bold mb-2"
+              text="Middle Name"
+            />
+
+            <CustomInput
+              type="text"
+              id="middleName"
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+              placeholder="Enter your middle name"
+              required="false"
+            />
+          </div>
+
           <div className="w-full sm:w-1/2 px-2  mb-2">
             <CustomLabel
               htmlFor="lastName"
@@ -309,7 +329,7 @@ function Login() {
               type="email"
               id="email"
               value={emailid}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmailId(e.target.value)}
               placeholder="Enter your email"
               required="true"
             />
@@ -325,7 +345,7 @@ function Login() {
               type="password"
               id="password"
               value={passWord}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setpassWord(e.target.value)}
               placeholder="Enter your password"
               required="true"
             />
