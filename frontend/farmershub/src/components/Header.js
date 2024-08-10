@@ -1,16 +1,22 @@
 import CustomLink from "./CustomLink";
-import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "./AuthProvider";
 
 function Header() {
-  const navigate = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
 
-  function handleLogout() {
-    // Remove the token from localStorage
-    localStorage.removeItem("authToken");
+  // useEffect(() => {
+  //   const token = localStorage.getItem("authToken");
+  //   setIsLoggedIn(!!token); // Convert token to a boolean
+  // }, []);
 
-    // Redirect to the login page
-    navigate("/login");
-  }
+  // function handleLogout() {
+  //   // Remove the token from localStorage
+  //   localStorage.removeItem("authToken");
+
+  //   // Redirect to the login page
+  //   navigate("/login");
+  // }
 
   return (
     <header>
@@ -20,30 +26,34 @@ function Header() {
         </div>
         <nav>
           <ul className="flex space-x-4 ">
-            <CustomLink
-              text="Products"
-              to="/login"
-              className="hover:text-green-600"
-            />
-
-            <CustomLink
-              text="Login"
-              to="/login"
-              className="hover:text-green-600"
-            />
-
-            <CustomLink
-              text="Sign Up"
-              to="/signUp"
-              className="hover:text-green-600"
-            />
-
-            <CustomLink
-              text="Log Out"
-              to="/login"
-              className="hover:text-green-600"
-              onClick={handleLogout}
-            />
+            {isLoggedIn ? (
+              <>
+                <CustomLink
+                  text="Home"
+                  to="/"
+                  className="hover:text-green-600"
+                />
+                <CustomLink
+                  text="Log Out"
+                  to="/login"
+                  className="hover:text-green-600"
+                  onClick={logout}
+                />
+              </>
+            ) : (
+              <>
+                <CustomLink
+                  text="Login"
+                  to="/login"
+                  className="hover:text-green-600"
+                />
+                <CustomLink
+                  text="Sign Up"
+                  to="/signup"
+                  className="hover:text-green-600"
+                />
+              </>
+            )}
           </ul>
         </nav>
       </div>

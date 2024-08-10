@@ -4,12 +4,15 @@ import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 import { loginUrl } from "../constants/Constants";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 
 function Login() {
   const [userId, setEmail] = useState("");
   const [passWord, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,7 +37,7 @@ function Login() {
         const token = result.message;
 
         localStorage.setItem("authToken", token);
-
+        login(token);
         navigate("/");
       } else {
         // console.error("Error:", response.statusText);
