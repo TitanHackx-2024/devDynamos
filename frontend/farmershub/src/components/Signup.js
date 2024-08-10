@@ -59,10 +59,10 @@ function Login() {
       if (response.ok) {
         // const result = await response.json();
         // console.log("Success:", result);
-
         navigate("/");
       } else {
         // console.error("Error:", response.statusText);
+        navigate("/signup");
       }
     } catch (error) {
       // console.error("Error:", error);

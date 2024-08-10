@@ -35,6 +35,7 @@ function Login() {
         navigate("/");
       } else {
         // console.error("Error:", response.statusText);
+        navigate("/login");
       }
     } catch (error) {
       // console.error("Error:", error);
