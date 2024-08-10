@@ -5,6 +5,9 @@ import CustomButton from "./CustomButton";
 import { loginUrl } from "../constants/Constants";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import ImageLink from "./menubar/ImageLink";
+import corplogoPath from '../img/crop.png'
+import namelogoPath from '../img/name.png';
 
 function Login() {
   const [userId, setEmail] = useState("");
@@ -51,8 +54,22 @@ function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        <form onSubmit={handleLogin}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: '60px' }}>
+          <ImageLink
+            src={corplogoPath}
+            alt="FarmHub Logo"
+            width={180}
+            height={90}
+          />
+          <ImageLink
+            src={namelogoPath}
+            alt="FarmHub Logo"
+            width={300}
+            height={52}
+          />
+      </div>
+
+      <form onSubmit={handleLogin}>
           <div className="mb-4">
             <CustomLabel
               htmlFor="email"
@@ -89,7 +106,7 @@ function Login() {
           <div className="w-full px-2 flex items-center justify-center">
             <CustomButton
               type="submit"
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 focus:outline-none focus:ring focus:border-green-300"
+              className="bg-blue-500 text-white px-40 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring"
               text="Login"
             />
           </div>
