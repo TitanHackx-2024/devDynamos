@@ -26,7 +26,3 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-      working-directory: main/frontend/farmershub
-    - run: npm run build
-      working-directory: main/frontend/farmershub
