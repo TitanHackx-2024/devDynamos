@@ -32,6 +32,7 @@ function Login() {
     const data = {
       firstName,
       lastName,
+      middleName,
       gender,
       age,
       emailid,
