@@ -6,8 +6,8 @@ import { loginUrl } from "../constants/Constants";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userId, setEmail] = useState("");
+  const [passWord, setPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -15,8 +15,8 @@ function Login() {
     e.preventDefault();
 
     const data = {
-      email,
-      password,
+      userId,
+      passWord,
     };
 
     try {
@@ -29,8 +29,8 @@ function Login() {
       });
 
       if (response.ok) {
-        // const result = await response.json();
-        // console.log("Success:", result);
+         const result = await response.json();
+         console.log("Success:", result);
 
         navigate("/");
       } else {
@@ -55,9 +55,9 @@ function Login() {
             />
 
             <CustomInput
-              type="email"
+              type="text"
               id="email"
-              value={email}
+              value={userId}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required="true"
@@ -74,7 +74,7 @@ function Login() {
             <CustomInput
               type="password"
               id="password"
-              value={password}
+              value={passWord}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               required="true"

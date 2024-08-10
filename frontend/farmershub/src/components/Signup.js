@@ -8,21 +8,21 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
   const [age, setAge] = useState(0);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const [country, setCountry] = useState("");
+  const [emailid, setEmail] = useState("");
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
   const [village, setVillage] = useState("");
   const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
-  const [roles, setRoles] = useState("");
   const [userId, setUserId] = useState("");
+  const [passWord, setPassword] = useState("");
+  const [roles, setRoles] = useState("");
 
   const navigate = useNavigate();
 
@@ -34,8 +34,8 @@ function Login() {
       lastName,
       gender,
       age,
-      email,
-      password,
+      emailid,
+      passWord,
       country,
       state,
       district,
@@ -308,7 +308,7 @@ function Login() {
             <CustomInput
               type="email"
               id="email"
-              value={email}
+              value={emailid}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required="true"
@@ -324,7 +324,7 @@ function Login() {
             <CustomInput
               type="password"
               id="password"
-              value={password}
+              value={passWord}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               required="true"
