@@ -2,15 +2,43 @@ import React, { useState } from "react";
 import CustomLabel from "./CustomLabel";
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
+import { loginUrl } from "../constants/Constants";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add your login logic here (e.g., API call)
-    console.log("Logging in with", email, password);
+
+    const data = {
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch(loginUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        // const result = await response.json();
+        // console.log("Success:", result);
+
+        navigate("/");
+      } else {
+        // console.error("Error:", response.statusText);
+      }
+    } catch (error) {
+      // console.error("Error:", error);
+    }
   };
 
   return (
@@ -51,7 +79,7 @@ function Login() {
               required="true"
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="w-full px-2 flex items-center justify-center">
             <CustomButton
               type="submit"
               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 focus:outline-none focus:ring focus:border-green-300"
