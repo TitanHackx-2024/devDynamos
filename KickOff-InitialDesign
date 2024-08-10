@@ -51,4 +51,77 @@ FarmerProfile
 Product			PID productname productowner(FID FK) QuantityAvaillable
 				Add product
 				Search product by name
-				
+
+--------------------------------------------------------------------------------------------------
+
+***DB design for Farmer Profile and Product Details***
+
+/*For Oracle Database start*/
+--create tablespace farmerhub DATAFILE 'farmerhub.dbf' size 100m autoextend on;
+--create user farmerhub identified by farmerhub default tablespace farmerhub;
+
+--grant connect to farmerhub;
+--grant create table to farmerhub;
+--grant create index to farmerhub;
+--alter user farmerhub quota unlimited on farmerhub;
+
+/*For Oracle Database end*/
+
+create table product
+(
+  pid number not null,
+  product_name varchar(100) not null,
+  product_owner number,
+  available_qty number,
+  sku varchar(10),
+  rate number,
+  location number
+)
+
+create unique index product_id on product(pid);
+create index farmer_id on product(product_owner);
+create index l_id on product(location);
+
+create table farmer
+(
+  fid number not null,
+  first_name varchar(50),
+  last_name varchar(50) not null,
+  gender varchar(2),
+  age number,
+  loc_id number
+)
+
+create unique index farmer_fid on farmer(fid);
+create index location_id on farmer(loc_id);
+
+create table location
+(
+  id number not null,
+  country varchar(200) not null,
+  states varchar(200),
+  district varchar(200),
+  village varchar(200),
+  address varchar(2000),
+  pincode number not null,
+  country_phone_id number,
+  farmer number
+)
+
+create unique index locationid on location(id);
+create index pin_code on location(pincode);
+create index farmer_fid on location(farmer);
+
+create table user_login
+(
+  user_id varchar(100) not null,
+  email_id varchar(500) not null,
+  phone_number number not null,
+  password varchar(20),
+  farmer_id number
+)
+
+create unique index usr_id on user_login(user_id);
+create index fm_id on user_login(farmer_id);
+
+------------------------------------------------------------------------------------------------------
