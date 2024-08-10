@@ -67,20 +67,20 @@ Product			PID productname productowner(FID FK) QuantityAvaillable
 
 /*For Oracle Database end*/
 
-create table product
-(
-  pid number not null,
-  product_name varchar(100) not null,
-  product_owner number,
-  available_qty number,
-  sku varchar(10),
-  rate number,
-  location number
-)
-
-create unique index product_id on product(pid);
-create index farmer_id on product(product_owner);
-create index l_id on product(location);
+--create table product
+--(
+--  pid number not null,
+--  product_name varchar(100) not null,
+--  product_owner number,
+--  available_qty number,
+--  sku varchar(10),
+--  rate number,
+--  location number
+--)
+--
+--create unique index product_id on product(pid);
+--create index farmer_id on product(product_owner);
+--create index l_id on product(location);
 
 create table farmer
 (
@@ -90,7 +90,7 @@ create table farmer
   gender varchar(2),
   age number,
   loc_id number
-)
+);
 
 create unique index farmer_fid on farmer(fid);
 create index location_id on farmer(loc_id);
@@ -106,11 +106,11 @@ create table location
   pincode number not null,
   country_phone_id number,
   farmer number
-)
+);
 
 create unique index locationid on location(id);
 create index pin_code on location(pincode);
-create index farmer_fid on location(farmer);
+create index fmr_id on location(farmer);
 
 create table user_login
 (
@@ -119,7 +119,7 @@ create table user_login
   phone_number number not null,
   password varchar(20),
   farmer_id number
-)
+);
 
 create unique index usr_id on user_login(user_id);
 create index fm_id on user_login(farmer_id);
