@@ -1,8 +1,10 @@
 import React from 'react';
-import { Stack, Image  } from '@fluentui/react';
+import { Stack } from '@fluentui/react';
 import ColorBrand from './UserDetails/Avatar';
-import logoPath from '../../img/logo.png';
+import corplogoPath from '../../img/crop.png';
+import namelogoPath from '../../img/name.png';
 import SearchBar from './SearchBox';
+import ImageLink from './ImageLink'
 
 const MenuBar = () => {
   return (
@@ -14,12 +16,20 @@ const MenuBar = () => {
         >
           {/* Logo */}
           <Stack.Item styles={{ root: { flexGrow: 1 } }}>
-            <Image
-              src={logoPath}
-              alt="FarmHub Logo"
-              width={160}
-              height={40}
-            />
+              <Stack horizontal tokens={{ childrenGap: 10 }} verticalAlign="center">
+              <ImageLink
+                src={corplogoPath}
+                alt="FarmHub Logo"
+                width={60}
+                height={40}
+              />
+              <ImageLink
+                src={namelogoPath}
+                alt="FarmHub Logo Text"
+                width={200}
+                height={35}
+              />
+            </Stack>
           </Stack.Item>
           {/* Search Bar */}
           <Stack.Item styles={{ root: { flexGrow: 2 } }}>
@@ -27,7 +37,7 @@ const MenuBar = () => {
           </Stack.Item>
           {/* ColorBrand Component */}
           <Stack.Item>
-            <ColorBrand />
+            <ColorBrand init ='MS'/>
           </Stack.Item>
         </Stack>
   );

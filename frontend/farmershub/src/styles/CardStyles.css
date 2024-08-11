@@ -1,0 +1,43 @@
+.footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .buy-button {
+    background-color: #0078d4; /* Fluent UI blue color */
+    color: #ffffff;
+    border-color: #0078d4;
+  }
+  
+  .buy-button:hover {
+    background-color: #005a9e; /* Darker blue on hover */
+  }
+  
+  .buy-button:active {
+    background-color: #004578; /* Even darker blue when active */
+  }
+  
+  .other-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between; /* Align items to the ends */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 16px; /* Bottom margin for spacing */
+  }
+  
+  .card-header .color-brand {
+    margin-left: 16px; /* Spacing between the ColorBrand and the name */
+    align-items: right;
+  }
+  
+  .card-header .name {
+    font-size: 1.5em; /* Adjust font size */
+    font-weight: bold; /* Make the name bold */
+    margin: 0; /* Remove default margin */
+  }
+  
