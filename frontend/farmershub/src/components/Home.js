@@ -275,7 +275,7 @@ function Home() {
               </div>
             )
           ) : (
-            <p>No data available. Please enter a search criteria.</p>
+            <p>Please enter a search criteria, to see the data here.</p>
           )}
         </div>
       </div>
