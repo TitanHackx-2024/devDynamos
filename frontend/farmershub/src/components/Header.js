@@ -1,6 +1,7 @@
 import CustomLink from "./CustomLink";
 
 import { useAuth } from "./AuthProvider";
+import { FaSeedling } from "react-icons/fa";
 
 function Header() {
   const { isLoggedIn, logout } = useAuth();
@@ -20,9 +21,14 @@ function Header() {
 
   return (
     <header>
-      <div className="container mx-auto  p-5 mb-5 flex justify-between items-center  border-b-4  border-green-400 bg-white">
-        <div>
-          <p className="text-2xl font-bold">Farmers hub</p>
+      <div className="container mx-auto  p-5 mb-5 flex justify-between items-center  border-b-4  border-green-500 bg-white">
+        <div className="flex items-center">
+          <FaSeedling className="text-green-600 text-3xl mr-2" />
+
+          <p className="text-2xl font-bold">
+            <span className="text-pink-600">Farmers</span>{" "}
+            <span className="text-green-600">Hub</span>
+          </p>
         </div>
         <nav>
           <ul className="flex space-x-4 ">
@@ -31,6 +37,11 @@ function Header() {
                 <CustomLink
                   text="Home"
                   to="/"
+                  className="hover:text-green-600"
+                />
+                <CustomLink
+                  text="Products"
+                  to="/products"
                   className="hover:text-green-600"
                 />
                 <CustomLink
