@@ -37,7 +37,7 @@ const MenuBar = () => {
           </Stack.Item>
           {/* ColorBrand Component */}
           <Stack.Item>
-            <ColorBrand />
+            <ColorBrand init ='MS'/>
           </Stack.Item>
         </Stack>
   );
