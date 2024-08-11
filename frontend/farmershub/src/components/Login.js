@@ -20,7 +20,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center m-5 bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <LogoSection />
         <LoginForm

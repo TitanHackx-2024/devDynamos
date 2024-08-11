@@ -26,6 +26,11 @@ public class ProfileController {
 	@Autowired
 	JWTService jwtService;
 	
+	@GetMapping("/hello")
+	public String sayHello() {
+		return "Hello message form controller farmerhubprofile......";
+	}
+	
 	@PostMapping("/create")
 	public Message saveProfile(@RequestBody FarmerProfile farmerProfile) {
 		System.out.println(farmerProfile.toString());

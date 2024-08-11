@@ -5,6 +5,7 @@ import SignUp from "./components/Signup";
 import Home from "./components/Home";
 import UserHome from './components/UserHome'
 import ProtectedRoute from "./components/ProtectedRoutes";
+import Product from "./components/Products";
 
 function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ function AppRoutes() {
       <Route element = {<ProtectedRoute/>}>
           <Route path="/" element={<Home />}/>
           <Route path="/home" element={<UserHome />}/>
+          <Route path="/products" element={<Product />}/>
       </Route>
     </Routes>
   );
