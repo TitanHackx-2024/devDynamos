@@ -15,12 +15,12 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
-      <Route element = {<ProtectedRoute/>}>
+      {/* <Route element = {<ProtectedRoute/>}> */}
           <Route path="/" element={<Home />}/>
           <Route path="/home" element={<UserHome />}/>
           <Route path="/products" element={<Product />}/>
           <Route path = "/productops" element = {<ProductOperations />}/>
-      </Route>
+      {/* </Route> */}
     </Routes>
   );
 }
