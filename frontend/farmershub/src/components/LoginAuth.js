@@ -22,10 +22,9 @@ const useUserAuthentication = () => {
       localStorage.setItem("authToken", token);
       login(token);
       navigate("/");
-      return true;
     } catch (error) {
       navigate("/login");
-      return false;
+      throw error
     }
   };
 
