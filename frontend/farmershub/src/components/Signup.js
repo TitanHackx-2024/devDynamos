@@ -5,6 +5,7 @@ import CustomInput from "./CustomInput";
 import CustomSelect from "./CustomSelect";
 import { signUpUrl } from "../constants/Constants";
 import { useNavigate } from "react-router-dom";
+import { postRequest } from "./apiUtils";
 
 function Login() {
   const [firstName, setFirstName] = useState("");
@@ -51,24 +52,11 @@ function Login() {
     console.log(data);
 
     try {
-      const response = await fetch(signUpUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Success:", result);
+      await postRequest(signUpUrl,data)
         navigate("/");
-      } else {
-        // console.error("Error:", response.statusText);
-        navigate("/signup");
       }
-    } catch (error) {
-      // console.error("Error:", error);
+    catch (error) {
+      navigate("/signup");
     }
   };
 
