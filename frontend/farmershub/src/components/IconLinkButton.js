@@ -3,14 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import {
   FilterAddRegular,
   CartFilled,
-  ArrowCircleUpRightFilled
+  ArrowCircleUpRightFilled,
+  SignOutFilled,
+  MoreHorizontalFilled,
+  BotFilled
 } from '@fluentui/react-icons';
 
 // Map icon names to components
 const iconMap = {
     FilterAddRegular,
     CartFilled,
-    ArrowCircleUpRightFilled
+    ArrowCircleUpRightFilled,
+    SignOutFilled,
+    MoreHorizontalFilled,
+    BotFilled
 };
 
 const IconLinkButton = ({ iconName, ariaLabel, url, text }) => {
