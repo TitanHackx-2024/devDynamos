@@ -5,18 +5,15 @@ import com.farmershub.repository.ProductProfileRepository;
 import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Service
 public class ProductService {
+	
     @Autowired
     ProductProfileRepository productProfileRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     public Product save(Product product) throws SQLException{
         return productProfileRepository.save(product);
@@ -26,7 +23,11 @@ public class ProductService {
         return productProfileRepository.findAll();
     }
 
-    public List<Product> findProduct(String product) throws SQLException{
-        return productProfileRepository.findProduct(String product);
+    public List<Product> findProductByProductName(String productName) throws SQLException{
+        return productProfileRepository.findByProductName(productName);
+    }
+    
+    public List<Product> findProductByUserId(String userId) throws SQLException{
+        return productProfileRepository.findByUserId(userId);
     }
 }

@@ -20,4 +20,5 @@ public interface ProfileRepository extends JpaRepository<FarmerProfile, Integer>
 	List<FarmerProfile> findByState(String state);
 	
 	Optional<FarmerProfile> findByuserId(String username);
+	
 }

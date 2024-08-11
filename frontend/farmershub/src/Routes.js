@@ -5,6 +5,7 @@ import SignUp from "./components/Signup";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import Product from "./components/Products";
+import ProductOperations from "./components/ProductOperations";
 
 function AppRoutes() {
   return (
@@ -24,6 +25,15 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <Product />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/productops"
+        element={
+          <ProtectedRoute>
+            <ProductOperations />
           </ProtectedRoute>
         }
       />

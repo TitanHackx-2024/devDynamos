@@ -17,7 +17,7 @@ import com.farmershub.service.JWTService;
 import com.farmershub.service.ProductService;
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("/product")
 public class ProductProfileController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class ProductProfileController {
     @GetMapping("/findProduct/{productName}")
     public List<Product> findProduct(@PathVariable String productName) {
         try {
-            return productService.findProduct(productName);
+            return productService.findProductByProductName(productName);
         }catch (SQLException e) {
             return null;
         }

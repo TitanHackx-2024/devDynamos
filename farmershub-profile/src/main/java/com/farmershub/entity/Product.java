@@ -8,14 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//product_name varchar(100) not null,
-//  product_owner number,
-//  available_qty number,
-//  sku varchar(10),
-//  rate number,
-//  location number
-
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -25,16 +17,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pid;
 
-    private String product_name;
-    private int product_owner;
-    private int available_qty;
-    private String sku;
-    private int rate;
-    private int location;
+    private String productName;
+    private String userId;
+    private int quantity;
+    private String unit;
+    private int price;
+    private int pincode;
 
     @Override
     public String toString() {
-        return "Product [pid=" + pid + ", product_name=" + product_name + ", product_owner=" + product_owner + ", available_qty="
-                + available_qty + ", sku=" + sku + ", rate=" + rate + ", location=" + location + "]";
+        return "Product [pid=" + pid + ", product_name=" + productName + ", product_owner=" + userId + ", available_qty="
+                + quantity + ", sku=" + unit + ", rate=" + price + ", location=" + pincode + "]";
     }
 }
