@@ -55,6 +55,7 @@ public class SecurityConfig implements WebMvcConfigurer {
 				.and()
 				.authorizeHttpRequests().requestMatchers("/profile/**").authenticated()
 				.and()
+				.authorizeHttpRequests().requestMatchers("/product/**").authenticated().and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authenticationProvider(authenticationProvider()).addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
