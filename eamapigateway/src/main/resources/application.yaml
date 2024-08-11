@@ -1,0 +1,34 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: EAM-API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: http://localhost:8085
+          predicates:
+            - Path=/employee/**, /attendance/**, /department/**, /empDept/**
+
+        - id: FARMERSHUB-PROFILE
+          uri: http://localhost:8080
+          predicates:
+            - Path=/profile/**
+
+        - id: LOGIN-SERVICE
+          uri: http://localhost:9090
+          predicates:
+            - Path=/login/**
+      default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+          - AddResponseHeader=Access-Control-Allow-Origin, *            
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
