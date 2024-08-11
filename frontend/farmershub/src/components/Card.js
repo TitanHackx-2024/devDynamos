@@ -1,14 +1,8 @@
 import * as React from "react";
 import { makeStyles, Body1, Caption1, Button, Card as FluentCard, CardHeader, CardPreview } from "@fluentui/react-components";
-import { CurrencyDollarRupeeRegular, ShareRegular, CartRegular } from "@fluentui/react-icons";
+import { ShareRegular, CartRegular } from "@fluentui/react-icons";
 import '../styles/CardStyles.css'; // Ensure the CSS file is imported
-import ColorBrand from './menubar/UserDetails/Avatar'; // Ensure this path is correct
-import { Rating } from "@fluentui/react";
-
-const resolveAsset = (asset) => {
-  const ASSET_URL = "https://raw.githubusercontent.com/microsoft/fluentui/master/packages/react-components/react-card/stories/src/assets/";
-  return `${ASSET_URL}${asset}`;
-};
+import cartTestImg from '../img/cartTest.png'; // Import the image
 
 const useStyles = makeStyles({
   card: {
@@ -27,24 +21,19 @@ const Card = ({ product = {} }) => {
 
   return (
     <FluentCard className={styles.card}>
-    <CardHeader
+      <CardHeader
         header={
-            <div className="card-header">
+          <div className="card-header">
             <Body1>
-                <h1 className="name">{name}</h1>
+              <h1 className="name">{name}</h1>
             </Body1>
-            <ColorBrand init = {'MS'} className="color-brand" />
-            </div>
+          </div>
         }
         description={<Caption1>{userDesc}</Caption1>}
-        />
-      <CardPreview
-        logo={
-          <img src={resolveAsset("docx.png")} alt="Microsoft Word document" />
-        }
-      >
+      />
+      <CardPreview>
         <img
-          src={resolveAsset("doc_template.png")}
+          src={cartTestImg} // Use the imported image directly
           alt={desc}
         />
       </CardPreview>
