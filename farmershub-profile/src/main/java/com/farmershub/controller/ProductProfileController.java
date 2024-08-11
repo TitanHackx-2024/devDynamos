@@ -3,8 +3,6 @@ package com.farmershub.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.farmershub.entity.ProductProfile;
-import com.farmershub.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.farmershub.dto.Message;
+import com.farmershub.entity.Product;
 import com.farmershub.service.JWTService;
 import com.farmershub.service.ProductService;
 
@@ -28,20 +27,20 @@ public class ProductProfileController {
     JWTService jwtService;
 
     @PostMapping("/create")
-    public Message addProduct(@RequestBody ProductProfile productProfile) {
-        System.out.println(productProfile.toString());
+    public Message addProduct(@RequestBody Product product) {
+        System.out.println(product.toString());
         try {
-            productService.save(productProfile);
+            productService.save(product);
             return new Message("Product saved successfully");
         }catch (SQLException e) {
             return new Message("There was exception creating Product : " + e.getMessage());
         }
     }
 
-    @GetMapping("/findProduct")
-    public List<ProductProfile> findProduct(@PathVariable String product) {
+    @GetMapping("/findAll")
+    public List<Product> findAll() {
         try {
-            return productService.findProduct(product);
+            return productService.findAll();
         }catch (SQLException e) {
             return null;
         }

@@ -1,6 +1,6 @@
 package com.farmershub.service;
 
-import com.farmershub.entity.ProductProfile;
+import com.farmershub.entity.Product;
 import com.farmershub.repository.ProductProfileRepository;
 import org.springframework.stereotype.Service;
 import java.sql.SQLException;
@@ -18,11 +18,11 @@ public class ProductService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public ProductProfile save(ProductProfile productProfile) throws SQLException{
-        return productProfileRepository.save(productProfile);
+    public Product save(Product product) throws SQLException{
+        return productProfileRepository.save(product);
     }
 
-    public List<ProductProfile> findProduct(String product) throws SQLException{
-        return productProfileRepository.findProduct(product);
+    public List<Product> findAll() throws SQLException{
+        return productProfileRepository.findAll();
     }
 }

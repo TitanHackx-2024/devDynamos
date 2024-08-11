@@ -1,13 +1,10 @@
 package com.farmershub.repository;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.farmershub.entity.ProductProfile;
+import com.farmershub.entity.Product;
 
-public interface ProductProfileRepository  extends JpaRepository<ProductProfile, Integer>{
+public interface ProductProfileRepository  extends JpaRepository<Product, Integer>{
 
-    List<ProductProfile> findProduct(String product);
+//    List<ProductProfile> findProduct(String product);
 }
