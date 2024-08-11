@@ -2,7 +2,7 @@ import * as React from "react";
 import { makeStyles, Body1, Caption1, Button, Card as FluentCard, CardHeader, CardPreview } from "@fluentui/react-components";
 import { ShareRegular, CartRegular } from "@fluentui/react-icons";
 import '../styles/CardStyles.css'; // Ensure the CSS file is imported
-import cartTestImg from '../img/cartTest.png'; // Import the image
+import cartTestImg from '../img/cartEmpty.png'; // Import the image
 
 const useStyles = makeStyles({
   card: {
@@ -17,7 +17,6 @@ const Card = ({ product = {} }) => {
 
   // Destructure properties with default values to avoid errors
   const { user = {}, desc = '', price = '', sellType = '', name = '' } = product;
-  const userDesc = user.desc || "No user description available";
 
   return (
     <FluentCard className={styles.card}>
@@ -29,8 +28,8 @@ const Card = ({ product = {} }) => {
             </Body1>
           </div>
         }
-        description={<Caption1>{userDesc}</Caption1>}
-      />
+        description={<Caption1 style={{ fontSize: '15px' }}>{desc}</Caption1>}
+        />
       <CardPreview>
         <img
           src={cartTestImg} // Use the imported image directly
