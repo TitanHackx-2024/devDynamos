@@ -6,7 +6,7 @@ const ImageLink = ({ src, alt, width, height }) => {
   const nevigate = useNavigate();
 
   const handleClick = () => {
-    nevigate('/Home');
+    nevigate('/');
   };
 
   return (
