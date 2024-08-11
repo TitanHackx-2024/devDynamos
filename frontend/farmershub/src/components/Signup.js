@@ -5,6 +5,7 @@ import CustomInput from "./CustomInput";
 import CustomSelect from "./CustomSelect";
 import { signUpUrl } from "../constants/Constants";
 import { useNavigate } from "react-router-dom";
+import { postRequest } from "./apiUtils";
 
 function Login() {
   const [firstName, setFirstName] = useState("");
@@ -51,24 +52,11 @@ function Login() {
     console.log(data);
 
     try {
-      const response = await fetch(signUpUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Success:", result);
+      await postRequest(signUpUrl,data)
         navigate("/");
-      } else {
-        // console.error("Error:", response.statusText);
-        navigate("/signup");
       }
-    } catch (error) {
-      // console.error("Error:", error);
+    catch (error) {
+      navigate("/signup");
     }
   };
 
@@ -86,7 +74,7 @@ function Login() {
   ];
 
   return (
-    <div className="flex items-center w-full justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center w-full justify-center m-5 bg-gray-100">
       <div className=" bg-white p-8 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
         <form onSubmit={handleSignup} className="flex flex-wrap -mx-2">
