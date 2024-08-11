@@ -16,8 +16,8 @@ function AppRoutes() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
       {/* <Route element = {<ProtectedRoute/>}> */}
-          <Route path="/" element={<Home />}/>
-          <Route path="/home" element={<UserHome />}/>
+          <Route path="/Home" element={<Home />}/>
+          <Route path="/" element={<UserHome />}/>
           <Route path="/products" element={<Product />}/>
           <Route path = "/productops" element = {<ProductOperations />}/>
       {/* </Route> */}

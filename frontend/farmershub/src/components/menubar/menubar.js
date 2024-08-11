@@ -6,8 +6,10 @@ import namelogoPath from '../../img/name.png';
 import SearchBar from './SearchBox';
 import ImageLink from './ImageLink';
 import IconLinkButton from '../IconLinkButton';
+import { useAuth } from "../AuthProvider";
 
 const MenuBar = () => {
+  const { isLoggedIn} = useAuth();
   return (
     <Stack 
       horizontal 
@@ -64,8 +66,17 @@ const MenuBar = () => {
         </Stack>
       </Stack.Item>
       {/* ColorBrand Component */}
-      <Stack.Item >
-        <ColorBrand init='MS' />
+      <Stack.Item>
+        {isLoggedIn ? (
+          <ColorBrand init='MS' />
+        ) : (
+          <IconLinkButton
+            iconName="SignOutFilled"
+            ariaLabel="LogOut"
+            url="/login"
+            text="Log in/Sign Up"
+          />
+        )}
       </Stack.Item>
     </Stack>
   );
