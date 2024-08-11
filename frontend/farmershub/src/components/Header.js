@@ -44,6 +44,13 @@ function Header() {
                   to="/products"
                   className="hover:text-green-600"
                 />
+
+                <CustomLink
+                  text="Product Operations"
+                  to="/productops"
+                  className="hover:text-green-600"
+                />
+
                 <CustomLink
                   text="Log Out"
                   to="/login"
